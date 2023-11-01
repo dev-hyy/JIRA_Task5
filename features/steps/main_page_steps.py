@@ -16,7 +16,6 @@ def click_onoff_plan_link(context):
 @when('Click on the first product')
 def click_on_first_product(context):
     context.driver.wait = WebDriverWait(context.driver, 30)
-    context.driver.get('https://soft.reelly.io/project/general?projectid=620')
-    # context.driver.wait.until(EC.element_to_be_clickable(FIRST_PRODUCT_LINK)).click()
+    context.driver.wait.until(EC.element_to_be_clickable(FIRST_PRODUCT_LINK)).click()
 
 
