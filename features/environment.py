@@ -12,9 +12,9 @@ def browser_init(context, scenario_name):
     :param scenario_name:
     :param context: Behave context
     """
-    # service = Service(executable_path='/Users/chelsy/QA/Lesson 5/python-selenium-automation/chromedriver')
-    # context.driver = webdriver.Chrome(service=service)
-    # context.driver.maximize_window()
+    service = Service(executable_path='/Users/chelsy/QA/Lesson 5/python-selenium-automation/chromedriver')
+    context.driver = webdriver.Chrome(service=service)
+    context.driver.maximize_window()
 
     ### OTHER BROWSERS ###
     # service = Service(executable_path='/Users/svetlanalevinsohn/careerist/15-python-selenium-automation/geckodriver')
@@ -22,34 +22,34 @@ def browser_init(context, scenario_name):
     # context.driver = webdriver.Safari()
 
     ### HEADLESS MODE CHROME ####
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    service = Service(executable_path='/Users/chelsy/Documents/Careerist QA Automation Homework/Python Course/Automation/Internship/JIRA_task_1/chromedriver')
-    context.driver = webdriver.Chrome(
-        options=options,
-        service=service
-    )
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # service = Service(executable_path='/Users/chelsy/Documents/Careerist QA Automation Homework/Python Course/Automation/Internship/JIRA_task_1/chromedriver')
+    # context.driver = webdriver.Chrome(
+    #     options=options,
+    #     service=service
+    # )
 
-    ### HEADLESS MODE FIREFOX ####
+    # ## HEADLESS MODE FIREFOX ####
     # options = FirefoxOptions()
     # options.add_argument("--headless")
     # context.driver = webdriver.Firefox(executable_path='/Users/chelsy/Documents/Careerist QA Automation Homework/Python Course/Automation/Internship/JIRA_task_1/geckodriver', options=options)
 
     ### BROWSERSTACK ###
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    # bs_user = ''
-    # bs_key = ''
-    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    # options = Options()
-    # bstack_options = {
-    #     'os': 'Windows',
-    #     'osVersion': '10',
-    #     'browserName': 'Firefox',
-    #     'sessionName': scenario_name
-    # }
-    # options.set_capability('bstack:options', bstack_options)
-    # context.driver = webdriver.Remote(command_executor=url, options=options)
+    bs_user = 'hylliams_mYSBpu'
+    bs_key = 'NfY7uyG2jqFrFjbiWBXu'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        'os': 'Windows',
+        'osVersion': '10',
+        'browserName': 'Firefox',
+        'sessionName': scenario_name
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
